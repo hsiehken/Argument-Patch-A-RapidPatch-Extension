@@ -25,7 +25,7 @@
 static unsigned long new_idt_table_page;
 static struct desc_ptr default_idtr;
 
-//extern void myDebugMonitor(void);
+extern void patch_trigger(void);
 
 static void doLoadIdt(void *info) {
     struct desc_ptr *idtr_ptr = (struct desc_ptr *) info;
