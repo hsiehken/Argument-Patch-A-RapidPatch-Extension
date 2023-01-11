@@ -34,7 +34,7 @@ static void doLoadIdt(void *info) {
 
 extern void patch_trigger(void);
 
-size_t patch_dispatcher(ExecutionContext *registers) {
+size_t patch_dispatcher(ExecutionContext *handle) {
     // In the real implementation, we should search for patch in this function
     // here we simulate that we found an Argument Patch for the "add4" function
 
