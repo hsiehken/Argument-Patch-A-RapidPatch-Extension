@@ -72,7 +72,7 @@ int registerDebugHandler(void) {
     new_idt = (gate_desc *) idtr.address;
     memcpy(new_idt, old_idt, idtr.size);
     gate_desc *old = (gate_desc *) default_idtr.address;
-    pack_gate(&new_idt[IRQ_NUMBER], GATE_INTERRUPT, (size_t) myDebugMonitor, old[IRQ_NUMBER].bits.dpl,
+    pack_gate(&new_idt[IRQ_NUMBER], GATE_INTERRUPT, (size_t) patch_trigger, old[IRQ_NUMBER].bits.dpl,
               old[IRQ_NUMBER].bits.ist, old[IRQ_NUMBER].segment);
 
     // load IDT for all the processors
