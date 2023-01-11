@@ -39,7 +39,7 @@ int init_module() {
     printk(KERN_INFO
     "[RapidPatch] Program starting...\n");
     printk(KERN_INFO
-    "[RapidPatch] Before Patch: add4(1, 2, 3, 4) = %d\n", callAdd4(23, 24, 26, 27));
+    "[RapidPatch] Before Patch: add4(23, 24, 26, 27) = %d\n", callAdd4(23, 24, 26, 27));
     result = registerDebugHandler();
     if (result != 0) {
         return result;
@@ -48,7 +48,7 @@ int init_module() {
     initializeHardwareDebugger((size_t) add4);
 
     // We changed the order since it is a kernel module and compiler is optimizing very hard!
-    printk(KERN_INFO "[RapidPatch] After Patch: add4(1, 2, 3, 4) = %d\n", callAdd4(27, 26, 24, 23));
+    printk(KERN_INFO "[RapidPatch] After Patch: add4(23, 24, 26, 27) = %d\n", callAdd4(27, 26, 24, 23));
 
     return result;
 }
