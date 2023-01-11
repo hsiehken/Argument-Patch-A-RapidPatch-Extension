@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include "FirmwarePatches.h"
 
-RAPID_PATCH_RETVAL add4_argument_patch(size_t stackFrame) {
+RAPID_PATCH_RETVAL add4_argument_patch(ExecutionContextHandle stackFrame) {
     // target function signature: add4(int a, int b, int c, int d)
 
+    // Practically these are only acquired-able via RapidPatch Runtime APIs
     size_t *callerSignature = ((size_t *) (stackFrame - sizeof(size_t))); // i.e. rip register
     size_t *rbp = ((size_t *) (stackFrame - sizeof(size_t) - sizeof(size_t)));
     size_t *callerContext = ((size_t *) (stackFrame - sizeof(size_t) - sizeof(size_t) - sizeof(size_t)));

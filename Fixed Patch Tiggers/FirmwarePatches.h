@@ -3,4 +3,5 @@
 
 #include "RapidPatch.h"
 
-RAPID_PATCH_RETVAL add4_argument_patch(size_t stackFrame);
+
+RAPID_PATCH_RETVAL add4_argument_patch(ExecutionContextHandle stackFrame);
